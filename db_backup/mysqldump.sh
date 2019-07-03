@@ -19,7 +19,7 @@ else
   chown -R root $BACKUP_PATH
 fi
 
-#mysqldump -u$DB_USER -p $DB_PASS -h $DB_HOST --all-databases | gzip > mysql_$(date '+%Y%m%d-%H:%M:%S').dump.gz
+#mysqldump -u$DB_USER -p $DB_PASS -h $DB_HOST --all-databases | gzip > $FILENAME
 echo 'starting backup...'
 cd $BACKUP_PATH
 mysqldump -u$DB_USER -h $DB_HOST --all-databases | gzip > $FILENAME
