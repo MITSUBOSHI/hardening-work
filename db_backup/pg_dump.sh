@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DB_USER='root'
+DB_USER='mitsubosh'
 #DB_PASS=''
 DB_HOST='localhost'
 
@@ -21,7 +21,7 @@ fi
 
 echo 'starting backup...'
 cd $BACKUP_PATH
-pg_dumpall -U $DB_USER -h $DB_HOST | gzip > $FILENAME
+pg_dumpall -U $DB_USER -h $DB_HOST --clean --if-exists | gzip > $FILENAME
 chmod 700 $FILENAME
 chown root $FILENAME
 echo 'ended backup'
